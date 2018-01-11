@@ -29,6 +29,16 @@ exports[`WishListView should render correctly 1`] = `
             ✏️
           </span>
         </button>
+        <button
+          onClick={[Function]}
+        >
+          <span
+            aria-label="Remove"
+            role="img"
+          >
+            ❌
+          </span>
+        </button>
       </span>
     </li>
     <li
@@ -55,6 +65,16 @@ exports[`WishListView should render correctly 1`] = `
             ✏️
           </span>
         </button>
+        <button
+          onClick={[Function]}
+        >
+          <span
+            aria-label="Remove"
+            role="img"
+          >
+            ❌
+          </span>
+        </button>
       </span>
     </li>
     <li
@@ -79,6 +99,16 @@ exports[`WishListView should render correctly 1`] = `
             role="img"
           >
             ✏️
+          </span>
+        </button>
+        <button
+          onClick={[Function]}
+        >
+          <span
+            aria-label="Remove"
+            role="img"
+          >
+            ❌
           </span>
         </button>
       </span>

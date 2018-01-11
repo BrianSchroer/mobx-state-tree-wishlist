@@ -24,6 +24,9 @@ class WishListItemView extends React.Component {
         <button onClick={this.onEditRequest}>
           <span role="img" aria-label="Edit">✏️</span>
         </button>
+        <button onClick={item.remove}>
+          <span role="img" aria-label="Remove">❌</span>
+        </button>
       </span>
     </li>
   );
@@ -35,7 +38,7 @@ class WishListItemView extends React.Component {
         <span role="img" aria-label="Save">💾</span>
       </button>
       <button onClick={this.onEditCancel}>
-        <span role="img" aria-label="Cancel">❌</span>
+        <span role="img" aria-label="Cancel">👈</span>
       </button>
     </li>
   );
@@ -45,11 +48,11 @@ class WishListItemView extends React.Component {
       isEditing: true,
       clone: clone(this.props.item)
     })
-  }
+  };
 
   onEditCancel = () => {
     this.setState({ isEditing: false })
-  }
+  };
 
   onEditSave = () => {
     applySnapshot(this.props.item, getSnapshot(this.state.clone));
@@ -57,7 +60,7 @@ class WishListItemView extends React.Component {
       isEditing: false,
       clone: null
     })
-  }
+  };
 }
 
 export default observer(WishListItemView);

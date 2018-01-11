@@ -5,7 +5,8 @@ import { reactRendererSnapshotHelper as snapshotHelper } from '../util/testHelpe
 const testInput = {
   name: 'Chronicles of Narnia Box Set - C.S. Lewis',
   price: 28.83,
-  image: 'https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg'
+  image: 'https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg',
+  remove: () => { }
 };
 
 function applyOverrides(overrides) {

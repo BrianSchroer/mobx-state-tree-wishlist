@@ -1,5 +1,5 @@
 import React from 'react';
-import WishListView from './WishListView';
+import App from './App';
 import { reactRendererSnapshotHelper as snapshotHelper } from '../util/testHelpers';
 
 const items = [1, 2, 3].map(i => ({
@@ -14,13 +14,8 @@ const wishList = {
   totalPrice: 1234.56
 };
 
-describe('WishListView', () => {
-  it('should be a MobXReactObserver', () => {
-    const component = <WishListView wishList={wishList} />;
-    expect(component.type.isMobXReactObserver).toBe(true);
-  });
-
+describe('App', () => {
   it('should render correctly', () => {
-    snapshotHelper.assertMatch(<WishListView wishList={wishList} />);
+    snapshotHelper.assertMatch(<App wishList={wishList} />);
   });
 });

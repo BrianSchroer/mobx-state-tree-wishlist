@@ -8,7 +8,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">WishList</h1>
+          <h1 className="App-title">Wish List</h1>
         </header>
         <WishListView wishList={this.props.wishList} />
       </div>
