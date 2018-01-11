@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WishListView should render correctly 1`] = `
+<div
+  className="list"
+>
+  <ul>
+    <li
+      className="item"
+    >
+      <img
+        src="http://www.something/com/image1.png"
+      />
+      <h3>
+        name1
+      </h3>
+      <span>
+        $1.00
+      </span>
+    </li>
+    <li
+      className="item"
+    >
+      <img
+        src="http://www.something/com/image2.png"
+      />
+      <h3>
+        name2
+      </h3>
+      <span>
+        $2.00
+      </span>
+    </li>
+    <li
+      className="item"
+    >
+      <img
+        src="http://www.something/com/image3.png"
+      />
+      <h3>
+        name3
+      </h3>
+      <span>
+        $3.00
+      </span>
+    </li>
+  </ul>
+  <div>
+    Total: 
+    $1,234.56
+  </div>
+</div>
+`;

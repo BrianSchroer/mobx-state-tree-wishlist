@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dollars should render 0 correctly 1`] = `"$0.00"`;
+
+exports[`Dollars should render 1 correctly 1`] = `"$1.00"`;
+
+exports[`Dollars should render 1.23 correctly 1`] = `"$1.23"`;
+
+exports[`Dollars should render 12.34 correctly 1`] = `"$12.34"`;
+
+exports[`Dollars should render 123.45 correctly 1`] = `"$123.45"`;
+
+exports[`Dollars should render 1234.56 correctly 1`] = `"$1,234.56"`;

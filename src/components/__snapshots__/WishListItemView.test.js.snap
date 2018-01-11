@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WishListItemView should render correctly with image 1`] = `
+<li
+  className="item"
+>
+  <img
+    src="https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg"
+  />
+  <h3>
+    Chronicles of Narnia Box Set - C.S. Lewis
+  </h3>
+  <span>
+    $28.83
+  </span>
+</li>
+`;
+
+exports[`WishListItemView should render correctly without image 1`] = `
+<li
+  className="item"
+>
+  
+  <h3>
+    Chronicles of Narnia Box Set - C.S. Lewis
+  </h3>
+  <span>
+    $28.83
+  </span>
+</li>
+`;
