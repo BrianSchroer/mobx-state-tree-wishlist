@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WishListItemEdit should render correctly 1`] = `
+<div
+  className="item-edit"
+>
+  <div>
+     Thing: 
+    <input
+      onChange={[Function]}
+      value="Chronicles of Narnia Box Set - C.S. Lewis"
+    />
+     
+  </div>
+  <div>
+     Price: 
+    <input
+      onChange={[Function]}
+      value={28.83}
+    />
+     
+  </div>
+  <div>
+     Image: 
+    <input
+      onChange={[Function]}
+      value="https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg"
+    />
+     
+  </div>
+</div>
+`;

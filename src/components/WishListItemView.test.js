@@ -17,6 +17,11 @@ function assertSnapshotMatch(overrides) {
 }
 
 describe('WishListItemView', () => {
+  it('should be a MobXReactObserver', () => {
+    const component = <WishListItemView item={testInput} />;
+    expect(component.type.isMobXReactObserver).toBe(true);
+  });
+
   it('should render correctly with image', () => assertSnapshotMatch());
 
   it('should render correctly without image', () => assertSnapshotMatch({ image: '' }));

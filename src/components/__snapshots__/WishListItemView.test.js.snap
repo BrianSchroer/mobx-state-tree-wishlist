@@ -5,6 +5,7 @@ exports[`WishListItemView should render correctly with image 1`] = `
   className="item"
 >
   <img
+    alt="Chronicles of Narnia Box Set - C.S. Lewis"
     src="https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg"
   />
   <h3>
@@ -12,6 +13,18 @@ exports[`WishListItemView should render correctly with image 1`] = `
   </h3>
   <span>
     $28.83
+  </span>
+  <span>
+    <button
+      onClick={[Function]}
+    >
+      <span
+        aria-label="Edit"
+        role="img"
+      >
+        ✏️
+      </span>
+    </button>
   </span>
 </li>
 `;
@@ -26,6 +39,18 @@ exports[`WishListItemView should render correctly without image 1`] = `
   </h3>
   <span>
     $28.83
+  </span>
+  <span>
+    <button
+      onClick={[Function]}
+    >
+      <span
+        aria-label="Edit"
+        role="img"
+      >
+        ✏️
+      </span>
+    </button>
   </span>
 </li>
 `;

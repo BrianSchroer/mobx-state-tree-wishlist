@@ -14,7 +14,7 @@ const wishList = {
 };
 
 describe('WishListView', () => {
-  it('should be isMobXReactObserver', () => {
+  it('should be a MobXReactObserver', () => {
     const component = <WishListView wishList={wishList} />;
     expect(component.type.isMobXReactObserver).toBe(true);
   });

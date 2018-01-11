@@ -9,6 +9,7 @@ exports[`WishListView should render correctly 1`] = `
       className="item"
     >
       <img
+        alt="name1"
         src="http://www.something/com/image1.png"
       />
       <h3>
@@ -17,11 +18,24 @@ exports[`WishListView should render correctly 1`] = `
       <span>
         $1.00
       </span>
+      <span>
+        <button
+          onClick={[Function]}
+        >
+          <span
+            aria-label="Edit"
+            role="img"
+          >
+            ✏️
+          </span>
+        </button>
+      </span>
     </li>
     <li
       className="item"
     >
       <img
+        alt="name2"
         src="http://www.something/com/image2.png"
       />
       <h3>
@@ -30,11 +44,24 @@ exports[`WishListView should render correctly 1`] = `
       <span>
         $2.00
       </span>
+      <span>
+        <button
+          onClick={[Function]}
+        >
+          <span
+            aria-label="Edit"
+            role="img"
+          >
+            ✏️
+          </span>
+        </button>
+      </span>
     </li>
     <li
       className="item"
     >
       <img
+        alt="name3"
         src="http://www.something/com/image3.png"
       />
       <h3>
@@ -42,6 +69,18 @@ exports[`WishListView should render correctly 1`] = `
       </h3>
       <span>
         $3.00
+      </span>
+      <span>
+        <button
+          onClick={[Function]}
+        >
+          <span
+            aria-label="Edit"
+            role="img"
+          >
+            ✏️
+          </span>
+        </button>
       </span>
     </li>
   </ul>
