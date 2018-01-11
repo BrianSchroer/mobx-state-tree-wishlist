@@ -1,3 +1,4 @@
+import { reaction } from 'mobx';
 import { WishList, WishListItem } from './WishList';
 import { mobxSnapshotHelper as snapshotHelper } from '../util/testHelpers';
 
@@ -43,7 +44,7 @@ describe('WishListItem', () => {
 describe('WishList', () => {
   it('.create() should returns expected items', () => {
     const inputItems = [1, 2, 3].map(i => ({ name: `name${i}`, price: i, image: `image${i}` }));
-    snapshotHelper.test(WishList.create({ items: inputItems }).items);
+    snapshotHelper.test(WishList.create({ items: inputItems }));
   });
 
   it('.create() without input returns empty items array', () => {
@@ -67,4 +68,39 @@ describe('WishList', () => {
         })));
   });
 
+  it('.totalPrice should return sum of item prices', () => {
+    const inputItems = [1.23, 4.56, 7.89, 10].map(i =>
+      ({ name: `name${i}`, price: i, image: `image${i}` }));
+
+    const list = WishList.create({ items: inputItems });
+    expect(list.totalPrice).toBe(23.68);
+  })
+
+  it('.totalPrice should only be recalculated when necessary', () => {
+    const list = WishList.create({ items: [testInput] });
+    expect(list.totalPrice).toEqual(testInput.price);
+
+    let recalculateCount = 0;
+    reaction(() => list.totalPrice, () => recalculateCount++);
+
+    list.items[0].changeName('new name');
+    expect(list.totalPrice).toEqual(testInput.price);
+    expect(recalculateCount).toBe(0);
+
+    list.items[0].changePrice(12.34);
+    expect(list.totalPrice).toEqual(12.34);
+    expect(recalculateCount).toBe(1);
+
+    list.add({ name: 'item2', price: 2.22, image: 'image2' })
+    expect(list.totalPrice).toEqual(14.56);
+    expect(recalculateCount).toBe(2);
+
+    list.items[1].changeName('new name');
+    expect(list.totalPrice).toEqual(14.56);
+    expect(recalculateCount).toBe(2);
+
+    list.items[1].changePrice(12.34);
+    expect(list.totalPrice).toEqual(24.68);
+    expect(recalculateCount).toBe(3);
+  });
 });

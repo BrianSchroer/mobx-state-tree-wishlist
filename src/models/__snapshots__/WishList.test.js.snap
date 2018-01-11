@@ -53,23 +53,25 @@ Array [
 `;
 
 exports[`WishList .create() should returns expected items 1`] = `
-Array [
-  Object {
-    "image": "image1",
-    "name": "name1",
-    "price": 1,
-  },
-  Object {
-    "image": "image2",
-    "name": "name2",
-    "price": 2,
-  },
-  Object {
-    "image": "image3",
-    "name": "name3",
-    "price": 3,
-  },
-]
+Object {
+  "items": Array [
+    Object {
+      "image": "image1",
+      "name": "name1",
+      "price": 1,
+    },
+    Object {
+      "image": "image2",
+      "name": "name2",
+      "price": 2,
+    },
+    Object {
+      "image": "image3",
+      "name": "name3",
+      "price": 3,
+    },
+  ],
+}
 `;
 
 exports[`WishListItem .changeImage() should change image 1`] = `
