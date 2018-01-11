@@ -134,7 +134,15 @@ Array [
 ]
 `;
 
-exports[`WishListItem .create() should return expected values 1`] = `
+exports[`WishListItem .create() without image should default to empty string for image 1`] = `
+Object {
+  "image": "",
+  "name": "Chronicles of Narnia Box Set - C.S. Lewis",
+  "price": 28.83,
+}
+`;
+
+exports[`WishListItem .create() without input should return expected values 1`] = `
 Object {
   "image": "https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg",
   "name": "Chronicles of Narnia Box Set - C.S. Lewis",
@@ -142,10 +150,10 @@ Object {
 }
 `;
 
-exports[`WishListItem .create() without image should default to empty string for image 1`] = `
+exports[`WishListItem create() without input should return "empty" item 1`] = `
 Object {
   "image": "",
-  "name": "Chronicles of Narnia Box Set - C.S. Lewis",
-  "price": 28.83,
+  "name": "",
+  "price": 0,
 }
 `;

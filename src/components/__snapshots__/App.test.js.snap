@@ -135,6 +135,54 @@ exports[`App should render correctly 1`] = `
       Total: 
       $1,234.56
     </div>
+    <div
+      style={
+        Object {
+          "marginTop": "2em",
+        }
+      }
+    >
+      <div>
+        <div
+          className="item-edit"
+        >
+          <div>
+             Thing: 
+            <input
+              onChange={[Function]}
+              value=""
+            />
+             
+          </div>
+          <div>
+             Price: 
+            <input
+              onChange={[Function]}
+              value={0}
+            />
+             
+          </div>
+          <div>
+             Image: 
+            <input
+              onChange={[Function]}
+              value=""
+            />
+             
+          </div>
+        </div>
+        <button
+          onClick={[Function]}
+        >
+          <span
+            aria-label="Add"
+            role="img"
+          >
+            Add
+          </span>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 `;

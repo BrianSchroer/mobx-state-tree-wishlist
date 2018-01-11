@@ -2,8 +2,8 @@ import { types, getParent, destroy } from 'mobx-state-tree';
 
 export const WishListItem = types
   .model({
-    name: types.string,
-    price: types.number,
+    name: types.optional(types.string, ''),
+    price: types.optional(types.number, 0),
     image: '' // optional string - default to '' - shorthand for "image: types.optional(types.string, '')"
   }
   ).actions(self => ({

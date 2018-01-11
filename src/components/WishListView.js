@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import WishListItemView from './WishListItemView';
+import WishListItemEntry from './WishListItemEntry';
 import Dollars from './Dollars';
 
 const WishListView = ({ wishList }) => (
@@ -10,6 +11,9 @@ const WishListView = ({ wishList }) => (
     </ul>
     <div>
       Total: <Dollars amount={wishList.totalPrice} />
+    </div>
+    <div style={{ marginTop: '2em' }}>
+      <WishListItemEntry wishList={wishList} />
     </div>
   </div>
 );

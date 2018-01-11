@@ -9,7 +9,11 @@ const testInput = {
 };
 
 describe('WishListItem', () => {
-  it('.create() should return expected values', () => {
+  it('create() without input should return "empty" item', () => {
+    snapshotHelper.test(WishListItem.create());
+  });
+
+  it('.create() without input should return expected values', () => {
     snapshotHelper.test(WishListItem.create(testInput));
   });
 
