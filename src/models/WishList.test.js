@@ -9,7 +9,7 @@ const testInput = {
 
 describe('WishListItem', () => {
   it('.create() should return expected values', () => {
-    snapshotHelper.assertMatch(WishListItem.create(testInput));
+    snapshotHelper.test(WishListItem.create(testInput));
   });
 
   it('.create() without image should default to empty string for image', () => {
@@ -18,32 +18,32 @@ describe('WishListItem', () => {
       price: 28.83
     };
 
-    snapshotHelper.assertMatch(WishListItem.create(input));
+    snapshotHelper.test(WishListItem.create(input));
   });
 
   it('.changeName() should change name', () => {
-    const output = WishListItem.create(testInput);
-    output.changeName('new name');
-    expect(output.name).toBe('new name');
+    snapshotHelper.test(
+      WishListItem.create(testInput),
+      item => item.changeName('new name'));
   });
 
   it('.changePrice() should change price', () => {
-    const output = WishListItem.create(testInput);
-    output.changePrice(12.34);
-    expect(output.price).toBe(12.34);
+    snapshotHelper.test(
+      WishListItem.create(testInput),
+      item => item.changePrice(12.34));
   });
 
   it('.changeImage() should change image', () => {
-    const output = WishListItem.create(testInput);
-    output.changeImage('new image');
-    expect(output.image).toBe('new image');
+    snapshotHelper.test(
+      WishListItem.create(testInput),
+      item => item.changeImage('new image'));
   });
 });
 
 describe('WishList', () => {
   it('.create() should returns expected items', () => {
     const inputItems = [1, 2, 3].map(i => ({ name: `name${i}`, price: i, image: `image${i}` }));
-    snapshotHelper.assertMatch(WishList.create({ items: inputItems }).items);
+    snapshotHelper.test(WishList.create({ items: inputItems }).items);
   });
 
   it('.create() without input returns empty items array', () => {
@@ -52,21 +52,19 @@ describe('WishList', () => {
   });
 
   it('.add(object) should add item', () => {
-    const wishList = WishList.create();
-    const countBeforeAdd = wishList.items.length;
-    const newItem = { name: 'newName', price: 23.45, image: 'new image' };
-    wishList.add(newItem);
-    expect(wishList.items.length).toEqual(countBeforeAdd + 1);
-    snapshotHelper.assertMatch(wishList.items[countBeforeAdd]);
+    snapshotHelper.test(
+      WishList.create(),
+      list =>
+        list.add({ name: 'newName', price: 23.45, image: 'new image' }));
   });
 
   it('.add(WishListItem) should add item', () => {
-    const wishList = WishList.create();
-    const countBeforeAdd = wishList.items.length;
-    const newItem = WishListItem.create({ name: 'newName', price: 23.45, image: 'new image' });
-    wishList.add(newItem);
-    expect(wishList.items.length).toEqual(countBeforeAdd + 1);
-    snapshotHelper.assertMatch(wishList.items[countBeforeAdd]);
+    snapshotHelper.test(
+      WishList.create(),
+      list =>
+        list.add(WishListItem.create({
+          name: 'newName', price: 23.45, image: 'new image'
+        })));
   });
 
 });
