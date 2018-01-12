@@ -5,28 +5,52 @@ exports[`WishListItemEdit should render correctly 1`] = `
   className="item-edit"
 >
   <div>
-     Thing: 
+    <div
+      className="item-edit-label"
+    >
+      <label
+        htmlFor="name"
+      >
+        Thing:
+      </label>
+    </div>
     <input
+      id="name"
       onChange={[Function]}
       value="Chronicles of Narnia Box Set - C.S. Lewis"
     />
-     
   </div>
   <div>
-     Price: 
+    <div
+      className="item-edit-label"
+    >
+      <label
+        htmlFor="price"
+      >
+        Price:
+      </label>
+    </div>
     <input
+      id="price"
       onChange={[Function]}
       value={28.83}
     />
-     
   </div>
   <div>
-     Image: 
+    <div
+      className="item-edit-label"
+    >
+      <label
+        htmlFor="image"
+      >
+        Image:
+      </label>
+    </div>
     <input
+      id="image"
       onChange={[Function]}
       value="https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg"
     />
-     
   </div>
 </div>
 `;

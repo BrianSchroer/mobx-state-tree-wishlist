@@ -6,9 +6,24 @@ class WishListItemEdit extends React.Component {
     const { item } = this.props;
     return (
       <div className="item-edit">
-        <div> Thing: <input value={item.name} onChange={this.onNameChange} /> </div>
-        <div> Price: <input value={item.price} onChange={this.onPriceChange} /> </div>
-        <div> Image: <input value={item.image} onChange={this.onImageChange} /> </div>
+        <div>
+          <div className="item-edit-label">
+            <label htmlFor="name">Thing:</label>
+          </div>
+          <input id="name" value={item.name} onChange={this.onNameChange} />
+        </div>
+        <div>
+          <div className="item-edit-label">
+            <label htmlFor="price">Price:</label>
+          </div>
+          <input id="price" value={item.price} onChange={this.onPriceChange} />
+        </div>
+        <div>
+          <div className="item-edit-label">
+            <label htmlFor="image">Image:</label>
+          </div>
+          <input id="image" value={item.image} onChange={this.onImageChange} />
+        </div>
       </div>
     );
   }

@@ -147,28 +147,52 @@ exports[`App should render correctly 1`] = `
           className="item-edit"
         >
           <div>
-             Thing: 
+            <div
+              className="item-edit-label"
+            >
+              <label
+                htmlFor="name"
+              >
+                Thing:
+              </label>
+            </div>
             <input
+              id="name"
               onChange={[Function]}
               value=""
             />
-             
           </div>
           <div>
-             Price: 
+            <div
+              className="item-edit-label"
+            >
+              <label
+                htmlFor="price"
+              >
+                Price:
+              </label>
+            </div>
             <input
+              id="price"
               onChange={[Function]}
               value={0}
             />
-             
           </div>
           <div>
-             Image: 
+            <div
+              className="item-edit-label"
+            >
+              <label
+                htmlFor="image"
+              >
+                Image:
+              </label>
+            </div>
             <input
+              id="image"
               onChange={[Function]}
               value=""
             />
-             
           </div>
         </div>
         <button
