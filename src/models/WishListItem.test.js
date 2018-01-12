@@ -1,4 +1,4 @@
-import { WishListItem } from './WishList';
+import { WishListItem } from './WishListItem';
 import { mobxSnapshotHelper as snapshotHelper } from '../util/testHelpers';
 
 const testInput = {

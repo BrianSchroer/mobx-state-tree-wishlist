@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User .create() should accept gender "f" 1`] = `
+Object {
+  "gender": "f",
+  "id": "fID",
+  "name": "f name",
+}
+`;
+
+exports[`User .create() should accept gender "m" 1`] = `
+Object {
+  "gender": "m",
+  "id": "mID",
+  "name": "m name",
+}
+`;
+
+exports[`User .create() should accept gender "x" 1`] = `
+Object {
+  "gender": "x",
+  "id": "xID",
+  "name": "x name",
+}
+`;
+
+exports[`User .create() should return expected item 1`] = `
+Object {
+  "gender": "m",
+  "id": "1",
+  "name": "Brian",
+}
+`;

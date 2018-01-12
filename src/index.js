@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { getSnapshot, onSnapshot } from 'mobx-state-tree';
 import './assets/index.css';
-import { WishList } from './models/WishList';
+import { WishList } from './models';
 import App from './components/App';
 
 function initializeWishList() {
@@ -51,7 +51,11 @@ function setUpHotModuleReloading() {
   });
 
   // Reload after change to model
-  module.hot.accept(['./models/WishList.js'], () => {
+  module.hot.accept([
+    './models/WishList.js',
+    './models/WishListItem.js',
+    './models/User.js'
+  ], () => {
     const snapshot = getSnapshot(wishList);
     wishList = WishList.create(snapshot);
     renderApp();

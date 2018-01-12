@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { WishListItem } from '../models/WishList';
+import { WishListItem } from '../models';
 import WishListItemEdit from './WishListItemEdit';
 
 class WishListEntry extends React.Component {

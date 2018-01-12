@@ -1,5 +1,6 @@
 import { reaction } from 'mobx';
-import { WishList, WishListItem } from './WishList';
+import { WishList } from './WishList';
+import { WishListItem } from './WishListItem';
 import { mobxSnapshotHelper as snapshotHelper } from '../util/testHelpers';
 
 const testInput = {
