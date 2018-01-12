@@ -52,7 +52,7 @@ Array [
 ]
 `;
 
-exports[`WishList .create() should returns expected items 1`] = `
+exports[`WishList .create() should return expected items 1`] = `
 Object {
   "items": Array [
     Object {
@@ -74,86 +74,92 @@ Object {
 }
 `;
 
-exports[`WishListItem .changeImage() should change image 1`] = `
+exports[`WishList .create() without input should return empty items array 1`] = `
+Object {
+  "items": Array [],
+}
+`;
+
+exports[`WishList .items[n].remove() should remove item 1`] = `
 Array [
   Object {
-    "image": "https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg",
-    "name": "Chronicles of Narnia Box Set - C.S. Lewis",
-    "price": 28.83,
+    "items": Array [
+      Object {
+        "image": "image1",
+        "name": "name1",
+        "price": 1,
+      },
+      Object {
+        "image": "image2",
+        "name": "name2",
+        "price": 2,
+      },
+      Object {
+        "image": "image3",
+        "name": "name3",
+        "price": 3,
+      },
+    ],
   },
   Object {
-    "op": "replace",
-    "path": "/image",
-    "value": "new image",
+    "op": "remove",
+    "path": "/items/1",
   },
   Object {
-    "image": "new image",
-    "name": "Chronicles of Narnia Box Set - C.S. Lewis",
-    "price": 28.83,
+    "items": Array [
+      Object {
+        "image": "image1",
+        "name": "name1",
+        "price": 1,
+      },
+      Object {
+        "image": "image3",
+        "name": "name3",
+        "price": 3,
+      },
+    ],
   },
 ]
 `;
 
-exports[`WishListItem .changeName() should change name 1`] = `
+exports[`WishList .remove() should remove item 1`] = `
 Array [
   Object {
-    "image": "https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg",
-    "name": "Chronicles of Narnia Box Set - C.S. Lewis",
-    "price": 28.83,
+    "items": Array [
+      Object {
+        "image": "image1",
+        "name": "name1",
+        "price": 1,
+      },
+      Object {
+        "image": "image2",
+        "name": "name2",
+        "price": 2,
+      },
+      Object {
+        "image": "image3",
+        "name": "name3",
+        "price": 3,
+      },
+    ],
   },
   Object {
-    "op": "replace",
-    "path": "/name",
-    "value": "new name",
+    "op": "remove",
+    "path": "/items/1",
   },
   Object {
-    "image": "https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg",
-    "name": "new name",
-    "price": 28.83,
+    "items": Array [
+      Object {
+        "image": "image1",
+        "name": "name1",
+        "price": 1,
+      },
+      Object {
+        "image": "image3",
+        "name": "name3",
+        "price": 3,
+      },
+    ],
   },
 ]
-`;
-
-exports[`WishListItem .changePrice() should change price 1`] = `
-Array [
-  Object {
-    "image": "https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg",
-    "name": "Chronicles of Narnia Box Set - C.S. Lewis",
-    "price": 28.83,
-  },
-  Object {
-    "op": "replace",
-    "path": "/price",
-    "value": 12.34,
-  },
-  Object {
-    "image": "https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg",
-    "name": "Chronicles of Narnia Box Set - C.S. Lewis",
-    "price": 12.34,
-  },
-]
-`;
-
-exports[`WishListItem .create() without image should default to empty string for image 1`] = `
-Object {
-  "image": "",
-  "name": "Chronicles of Narnia Box Set - C.S. Lewis",
-  "price": 28.83,
-}
-`;
-
-exports[`WishListItem .create() without input should return expected values 1`] = `
-Object {
-  "image": "https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg",
-  "name": "Chronicles of Narnia Box Set - C.S. Lewis",
-  "price": 28.83,
-}
-`;
-
-exports[`WishListItem create() without input should return "empty" item 1`] = `
-Object {
-  "image": "",
-  "name": "",
-  "price": 0,
-}
 `;
