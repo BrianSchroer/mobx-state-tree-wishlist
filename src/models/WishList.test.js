@@ -1,19 +1,16 @@
 import { reaction } from 'mobx';
 import { WishList } from './WishList';
 import { WishListItem } from './WishListItem';
+import { testWishListItemInput, testWishListItemInputs } from './testData';
 import { mobxSnapshotHelper as snapshotHelper } from '../util/testHelpers';
 
-const testInput = {
-  name: 'Chronicles of Narnia Box Set - C.S. Lewis',
-  price: 28.83,
-  image: 'https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg'
-};
-
-const testInputs = [1, 2, 3].map(i => ({ name: `name${i}`, price: i, image: `image${i}` }));
+function testItemInputWith(overrides) {
+  return Object.assign({}, testWishListItemInput, overrides);
+}
 
 describe('WishList', () => {
   it('.create() should return expected items', () => {
-    snapshotHelper.test(WishList.create({ items: testInputs }));
+    snapshotHelper.test(WishList.create({ items: testWishListItemInputs }));
   });
 
   it('.create() without input should return empty items array', () => {
@@ -25,18 +22,21 @@ describe('WishList', () => {
   it('.add(object) should add item', () => {
     snapshotHelper.test(
       WishList.create(),
-      list => list.add({ name: 'newName', price: 23.45, image: 'new image' }));
+      list => list.add(
+        testItemInputWith({ name: 'newName', price: 23.45, image: 'new image' })));
   });
 
   it('.add(WishListItem) should add item', () => {
     snapshotHelper.test(
       WishList.create(),
-      list => list.add(WishListItem.create({ name: 'newName', price: 23.45, image: 'new image' })));
+      list => list.add(
+        WishListItem.create(
+          testItemInputWith({ name: 'newName', price: 23.45, image: 'new image' }))));
   });
 
   it('.remove() should remove item', () => {
     snapshotHelper.test(
-      WishList.create({ items: testInputs }),
+      WishList.create({ items: testWishListItemInputs }),
       list => {
         const { items } = list;
         const itemCount = items.length;
@@ -47,7 +47,7 @@ describe('WishList', () => {
 
   it('.items[n].remove() should remove item', () => {
     snapshotHelper.test(
-      WishList.create({ items: testInputs }),
+      WishList.create({ items: testWishListItemInputs }),
       list => {
         const { items } = list;
         const itemCount = items.length;
@@ -57,22 +57,21 @@ describe('WishList', () => {
   });
 
   it('.totalPrice should return sum of item prices', () => {
-    const inputItems = [1.23, 4.56, 7.89, 10].map(i =>
-      ({ name: `name${i}`, price: i, image: `image${i}` }));
+    const inputItems = [1.23, 4.56, 7.89, 10].map(i => (testItemInputWith({ price: i })));
 
     const list = WishList.create({ items: inputItems });
     expect(list.totalPrice).toBe(23.68);
   })
 
   it('.totalPrice should only be recalculated when price is changed or item is added/removed', () => {
-    const list = WishList.create({ items: [testInput] });
-    expect(list.totalPrice).toEqual(testInput.price);
+    const list = WishList.create({ items: [testItemInputWith({ price: 28.83 })] });
+    expect(list.totalPrice).toEqual(testWishListItemInput.price);
 
     let recalculateCount = 0;
     reaction(() => list.totalPrice, () => recalculateCount++);
 
     list.items[0].changeName('new name');
-    expect(list.totalPrice).toEqual(testInput.price);
+    expect(list.totalPrice).toEqual(28.83);
     expect(recalculateCount).toBe(0);
 
     list.items[0].changePrice(12.34);

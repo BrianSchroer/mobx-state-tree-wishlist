@@ -1,11 +1,6 @@
 import { WishListItem } from './WishListItem';
+import { testWishListItemInput } from './testData';
 import { mobxSnapshotHelper as snapshotHelper } from '../util/testHelpers';
-
-const testInput = {
-  name: 'Chronicles of Narnia Box Set - C.S. Lewis',
-  price: 28.83,
-  image: 'https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg'
-};
 
 describe('WishListItem', () => {
   it('create() without input should return "empty" item', () => {
@@ -13,7 +8,7 @@ describe('WishListItem', () => {
   });
 
   it('.create() without input should return expected values', () => {
-    snapshotHelper.test(WishListItem.create(testInput));
+    snapshotHelper.test(WishListItem.create(testWishListItemInput));
   });
 
   it('.create() without image should default to empty string for image', () => {
@@ -27,19 +22,19 @@ describe('WishListItem', () => {
 
   it('.changeName() should change name', () => {
     snapshotHelper.test(
-      WishListItem.create(testInput),
+      WishListItem.create(testWishListItemInput),
       item => item.changeName('new name'));
   });
 
   it('.changePrice() should change price', () => {
     snapshotHelper.test(
-      WishListItem.create(testInput),
+      WishListItem.create(testWishListItemInput),
       item => item.changePrice(12.34));
   });
 
   it('.changeImage() should change image', () => {
     snapshotHelper.test(
-      WishListItem.create(testInput),
+      WishListItem.create(testWishListItemInput),
       item => item.changeImage('new image'));
   });
 });

@@ -3,31 +3,70 @@
 exports[`User .create() should accept gender "f" 1`] = `
 Object {
   "gender": "f",
-  "id": "fID",
-  "name": "f name",
+  "id": "1",
+  "name": "Brian",
+  "wishList": Object {
+    "items": Array [],
+  },
 }
 `;
 
 exports[`User .create() should accept gender "m" 1`] = `
 Object {
   "gender": "m",
-  "id": "mID",
-  "name": "m name",
+  "id": "1",
+  "name": "Brian",
+  "wishList": Object {
+    "items": Array [],
+  },
 }
 `;
 
 exports[`User .create() should accept gender "x" 1`] = `
 Object {
   "gender": "x",
-  "id": "xID",
-  "name": "x name",
+  "id": "1",
+  "name": "Brian",
+  "wishList": Object {
+    "items": Array [],
+  },
 }
 `;
 
-exports[`User .create() should return expected item 1`] = `
+exports[`User .create() should return expected item with wishlist 1`] = `
 Object {
   "gender": "m",
   "id": "1",
   "name": "Brian",
+  "wishList": Object {
+    "items": Array [
+      Object {
+        "image": "image1",
+        "name": "name1",
+        "price": 1,
+      },
+      Object {
+        "image": "image2",
+        "name": "name2",
+        "price": 2,
+      },
+      Object {
+        "image": "image3",
+        "name": "name3",
+        "price": 3,
+      },
+    ],
+  },
+}
+`;
+
+exports[`User .create() should return expected item without wishlist 1`] = `
+Object {
+  "gender": "m",
+  "id": "1",
+  "name": "Brian",
+  "wishList": Object {
+    "items": Array [],
+  },
 }
 `;
