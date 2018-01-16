@@ -1,2 +1,2 @@
-export { default as mobxSnapshotHelper } from './mobxSnapshotHelper';
-export { default as reactRendererSnapshotHelper } from './reactRendererSnapshotHelper';
+export { default as mobxSnapshotTester } from './mobxSnapshotTester';
+export { default as ComponentSnapshotTester } from './ComponentSnapshotTester';

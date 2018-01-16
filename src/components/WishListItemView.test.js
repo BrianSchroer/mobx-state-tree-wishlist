@@ -1,29 +1,24 @@
 import React from 'react';
 import WishListItemView from './WishListItemView';
-import { reactRendererSnapshotHelper as snapshotHelper } from '../util/testHelpers';
-
-const testInput = {
-  name: 'Chronicles of Narnia Box Set - C.S. Lewis',
-  price: 28.83,
-  image: 'https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg',
-  remove: () => { }
-};
-
-function applyOverrides(overrides) {
-  return Object.assign({}, testInput, overrides);
-}
-
-function assertSnapshotMatch(overrides) {
-  snapshotHelper.assertMatch(<WishListItemView item={applyOverrides(overrides)} />);
-}
+import { ComponentSnapshotTester as SnapshotTester } from '../util/testHelpers';
 
 describe('WishListItemView', () => {
+  const wishListItemView = <WishListItemView item={{
+    name: 'Chronicles of Narnia Box Set - C.S. Lewis',
+    price: 28.83,
+    image: 'https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg',
+    remove: () => { }
+  }} />;
+
   it('should be a MobXReactObserver', () => {
-    const component = <WishListItemView item={testInput} />;
-    expect(component.type.isMobXReactObserver).toBe(true);
+    expect(wishListItemView.type.isMobXReactObserver).toBe(true);
   });
 
-  it('should render correctly with image', () => assertSnapshotMatch());
+  const snapshotTester = new SnapshotTester(wishListItemView)
+    .withPropAdjustor((props, propOverrides) =>
+      ({ item: Object.assign({}, props.item, propOverrides) }));
 
-  it('should render correctly without image', () => assertSnapshotMatch({ image: '' }));
+  it('should render correctly with image', () => snapshotTester.test());
+
+  it('should render correctly without image', () => snapshotTester.test({ image: '' }));
 });

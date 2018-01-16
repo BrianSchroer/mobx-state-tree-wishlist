@@ -1,14 +1,14 @@
 import { WishListItem } from './WishListItem';
 import { testWishListItemInput } from './testData';
-import { mobxSnapshotHelper as snapshotHelper } from '../util/testHelpers';
+import { mobxSnapshotTester as snapshotTester } from '../util/testHelpers';
 
 describe('WishListItem', () => {
   it('create() without input should return "empty" item', () => {
-    snapshotHelper.test(WishListItem.create());
+    snapshotTester.test(WishListItem.create());
   });
 
   it('.create() without input should return expected values', () => {
-    snapshotHelper.test(WishListItem.create(testWishListItemInput));
+    snapshotTester.test(WishListItem.create(testWishListItemInput));
   });
 
   it('.create() without image should default to empty string for image', () => {
@@ -17,23 +17,23 @@ describe('WishListItem', () => {
       price: 28.83
     };
 
-    snapshotHelper.test(WishListItem.create(input));
+    snapshotTester.test(WishListItem.create(input));
   });
 
   it('.changeName() should change name', () => {
-    snapshotHelper.test(
+    snapshotTester.test(
       WishListItem.create(testWishListItemInput),
       item => item.changeName('new name'));
   });
 
   it('.changePrice() should change price', () => {
-    snapshotHelper.test(
+    snapshotTester.test(
       WishListItem.create(testWishListItemInput),
       item => item.changePrice(12.34));
   });
 
   it('.changeImage() should change image', () => {
-    snapshotHelper.test(
+    snapshotTester.test(
       WishListItem.create(testWishListItemInput),
       item => item.changeImage('new image'));
   });

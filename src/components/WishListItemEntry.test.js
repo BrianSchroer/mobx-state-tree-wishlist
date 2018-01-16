@@ -1,14 +1,15 @@
 import React from 'react';
 import WishListItemEntry from './WishListItemEntry';
-import { reactRendererSnapshotHelper as snapshotHelper } from '../util/testHelpers';
+import { ComponentSnapshotTester as SnapshotTester } from '../util/testHelpers';
 
 describe('WishListItemEntry', () => {
+  const wishListItemEntry = <WishListItemEntry wishList={{}} />;
+
   it('should be a MobXReactObserver', () => {
-    const component = <WishListItemEntry wishList={{}} />;
-    expect(component.type.isMobXReactObserver).toBe(true);
+    expect(wishListItemEntry.type.isMobXReactObserver).toBe(true);
   });
 
   it('should render correctly', () => {
-    snapshotHelper.assertMatch(<WishListItemEntry wishlist={{}} />);
+    SnapshotTester.test(wishListItemEntry);
   });
 });

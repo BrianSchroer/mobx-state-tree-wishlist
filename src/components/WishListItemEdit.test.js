@@ -1,6 +1,6 @@
 import React from 'react';
 import WishListItemEdit from './WishListItemEdit';
-import { reactRendererSnapshotHelper as snapshotHelper } from '../util/testHelpers';
+import { ComponentSnapshotTester as SnapshotTester } from '../util/testHelpers';
 
 const testInput = {
   name: 'Chronicles of Narnia Box Set - C.S. Lewis',
@@ -9,12 +9,13 @@ const testInput = {
 };
 
 describe('WishListItemEdit', () => {
+  const wishListItemEdit = <WishListItemEdit item={testInput} />;
+
   it('should be a MobXReactObserver', () => {
-    const component = <WishListItemEdit item={testInput} />;
-    expect(component.type.isMobXReactObserver).toBe(true);
+    expect(wishListItemEdit.type.isMobXReactObserver).toBe(true);
   });
 
   it('should render correctly', () => {
-    snapshotHelper.assertMatch(<WishListItemEdit item={testInput} />);
+    SnapshotTester.test(wishListItemEdit);
   });
 });
