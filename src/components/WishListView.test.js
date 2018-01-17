@@ -1,6 +1,6 @@
 import React from 'react';
 import WishListView from './WishListView';
-import { ComponentSnapshotTester as SnapshotTester } from '../util/testHelpers';
+import { ComponentSnapshotHelper } from '../util/testHelpers';
 
 const items = [1, 2, 3].map(i => ({
   name: `name${i}`,
@@ -21,5 +21,5 @@ describe('WishListView', () => {
     expect(wishListView.type.isMobXReactObserver).toBe(true);
   });
 
-  it('should render correctly', () => SnapshotTester.test(wishListView));
+  it('should render correctly', () => ComponentSnapshotHelper.test(wishListView));
 });

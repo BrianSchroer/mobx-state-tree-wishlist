@@ -2,7 +2,7 @@ import { reaction } from 'mobx';
 import { WishList } from './WishList';
 import { WishListItem } from './WishListItem';
 import { testWishListItemInput, testWishListItemInputs } from './testData';
-import { mobxSnapshotTester as snapshotTester } from '../util/testHelpers';
+import { mobxSnapshotHelper } from '../util/testHelpers';
 
 function testItemInputWith(overrides) {
   return Object.assign({}, testWishListItemInput, overrides);
@@ -10,24 +10,24 @@ function testItemInputWith(overrides) {
 
 describe('WishList', () => {
   it('.create() should return expected items', () => {
-    snapshotTester.test(WishList.create({ items: testWishListItemInputs }));
+    mobxSnapshotHelper.test(WishList.create({ items: testWishListItemInputs }));
   });
 
   it('.create() without input should return empty items array', () => {
-    snapshotTester.test(
+    mobxSnapshotHelper.test(
       WishList.create(),
       list => expect(list.items.length).toBe(0));
   });
 
   it('.add(object) should add item', () => {
-    snapshotTester.test(
+    mobxSnapshotHelper.test(
       WishList.create(),
       list => list.add(
         testItemInputWith({ name: 'newName', price: 23.45, image: 'new image' })));
   });
 
   it('.add(WishListItem) should add item', () => {
-    snapshotTester.test(
+    mobxSnapshotHelper.test(
       WishList.create(),
       list => list.add(
         WishListItem.create(
@@ -35,7 +35,7 @@ describe('WishList', () => {
   });
 
   it('.remove() should remove item', () => {
-    snapshotTester.test(
+    mobxSnapshotHelper.test(
       WishList.create({ items: testWishListItemInputs }),
       list => {
         const { items } = list;
@@ -46,7 +46,7 @@ describe('WishList', () => {
   });
 
   it('.items[n].remove() should remove item', () => {
-    snapshotTester.test(
+    mobxSnapshotHelper.test(
       WishList.create({ items: testWishListItemInputs }),
       list => {
         const { items } = list;

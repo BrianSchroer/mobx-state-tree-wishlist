@@ -1,6 +1,6 @@
 import React from 'react';
 import WishListItemEntry from './WishListItemEntry';
-import { ComponentSnapshotTester as SnapshotTester } from '../util/testHelpers';
+import { ComponentSnapshotHelper } from '../util/testHelpers';
 
 describe('WishListItemEntry', () => {
   const wishListItemEntry = <WishListItemEntry wishList={{}} />;
@@ -10,6 +10,6 @@ describe('WishListItemEntry', () => {
   });
 
   it('should render correctly', () => {
-    SnapshotTester.test(wishListItemEntry);
+    ComponentSnapshotHelper.test(wishListItemEntry);
   });
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import WishListItemView from './WishListItemView';
-import { ComponentSnapshotTester as SnapshotTester } from '../util/testHelpers';
+import { ComponentSnapshotHelper } from '../util/testHelpers';
 
 describe('WishListItemView', () => {
   const wishListItemView = <WishListItemView item={{
@@ -14,11 +14,11 @@ describe('WishListItemView', () => {
     expect(wishListItemView.type.isMobXReactObserver).toBe(true);
   });
 
-  const snapshotTester = new SnapshotTester(wishListItemView)
-    .withPropAdjustor((props, propOverrides) =>
+  const snapshotHelper = new ComponentSnapshotHelper(wishListItemView)
+    .withPropsAdjuster((props, propOverrides) =>
       ({ item: Object.assign({}, props.item, propOverrides) }));
 
-  it('should render correctly with image', () => snapshotTester.test());
+  it('should render correctly with image', () => snapshotHelper.test());
 
-  it('should render correctly without image', () => snapshotTester.test({ image: '' }));
+  it('should render correctly without image', () => snapshotHelper.test({ image: '' }));
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import WishListItemEdit from './WishListItemEdit';
-import { ComponentSnapshotTester as SnapshotTester } from '../util/testHelpers';
+import { ComponentSnapshotHelper } from '../util/testHelpers';
 
 const testInput = {
   name: 'Chronicles of Narnia Box Set - C.S. Lewis',
@@ -16,6 +16,6 @@ describe('WishListItemEdit', () => {
   });
 
   it('should render correctly', () => {
-    SnapshotTester.test(wishListItemEdit);
+    ComponentSnapshotHelper.test(wishListItemEdit);
   });
 });

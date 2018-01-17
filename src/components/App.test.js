@@ -1,6 +1,6 @@
 import React from 'react';
 import App from './App';
-import { ComponentSnapshotTester as SnapshotTester } from '../util/testHelpers';
+import { ComponentSnapshotHelper } from '../util/testHelpers';
 
 const items = [1, 2, 3].map(i => ({
   name: `name${i}`,
@@ -16,6 +16,6 @@ const wishList = {
 
 describe('App', () => {
   it('should render correctly', () => {
-    SnapshotTester.test(<App wishList={wishList} />);
+    ComponentSnapshotHelper.test(<App wishList={wishList} />);
   });
 });
