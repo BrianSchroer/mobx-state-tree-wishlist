@@ -5162,6 +5162,12 @@ react-error-overlay@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-3.0.0.tgz#c2bc8f4d91f1375b3dad6d75265d51cd5eeaf655"
 
+react-jest-snapshot-helper@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-jest-snapshot-helper/-/react-jest-snapshot-helper-1.0.3.tgz#5499157d44cd41b42d647afc7e1995886c9eba27"
+  dependencies:
+    react-test-renderer "^16.2.0"
+
 react-scripts@1.0.17:
   version "1.0.17"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-1.0.17.tgz#c30029123b561a060227af4d7797d50a222d3fbf"

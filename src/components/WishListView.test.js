@@ -1,12 +1,12 @@
 import React from 'react';
 import WishListView from './WishListView';
-import { ComponentSnapshotHelper } from '../util/testHelpers';
+import { SnapshotHelper } from 'react-jest-snapshot-helper';
 
 const items = [1, 2, 3].map(i => ({
   name: `name${i}`,
   price: i,
   image: `http://www.something/com/image${i}.png`,
-  remove: () => { }
+  remove: () => {}
 }));
 
 const wishList = {
@@ -21,5 +21,5 @@ describe('WishListView', () => {
     expect(wishListView.type.isMobXReactObserver).toBe(true);
   });
 
-  it('should render correctly', () => ComponentSnapshotHelper.test(wishListView));
+  it('should render correctly', () => SnapshotHelper.test(wishListView));
 });

@@ -17,6 +17,6 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "react-test-renderer": "^16.2.0"
+    "react-jest-snapshot-helper": "^1.0.3"
   }
 }

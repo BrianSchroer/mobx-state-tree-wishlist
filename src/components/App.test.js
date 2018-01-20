@@ -1,12 +1,12 @@
 import React from 'react';
 import App from './App';
-import { ComponentSnapshotHelper } from '../util/testHelpers';
+import { SnapshotHelper } from 'react-jest-snapshot-helper';
 
 const items = [1, 2, 3].map(i => ({
   name: `name${i}`,
   price: i,
   image: `http://www.something/com/image${i}.png`,
-  remove: () => { }
+  remove: () => {}
 }));
 
 const wishList = {
@@ -16,6 +16,6 @@ const wishList = {
 
 describe('App', () => {
   it('should render correctly', () => {
-    ComponentSnapshotHelper.test(<App wishList={wishList} />);
+    SnapshotHelper.test(<App wishList={wishList} />);
   });
 });

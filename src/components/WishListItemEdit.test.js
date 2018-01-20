@@ -1,11 +1,12 @@
 import React from 'react';
 import WishListItemEdit from './WishListItemEdit';
-import { ComponentSnapshotHelper } from '../util/testHelpers';
+import { SnapshotHelper } from 'react-jest-snapshot-helper';
 
 const testInput = {
   name: 'Chronicles of Narnia Box Set - C.S. Lewis',
   price: 28.83,
-  image: 'https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg'
+  image:
+    'https://images-na.ssl-images-amazon.com/images/I/51LmtX5KPAL._SX406_BO1,204,203,200_.jpg'
 };
 
 describe('WishListItemEdit', () => {
@@ -16,6 +17,6 @@ describe('WishListItemEdit', () => {
   });
 
   it('should render correctly', () => {
-    ComponentSnapshotHelper.test(wishListItemEdit);
+    SnapshotHelper.test(wishListItemEdit);
   });
 });
