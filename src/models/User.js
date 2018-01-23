@@ -1,4 +1,4 @@
-import { types } from 'mobx-state-tree';
+import { types, flow } from 'mobx-state-tree';
 import { WishList } from './WishList';
 
 const suggestionsUrlPrefix = 'http://localhost:3001/suggestions';
@@ -12,12 +12,11 @@ export const User = types
   })
 
   .actions(self => ({
-    async getSuggestions() {
-      const response = await window.fetch(
+    getSuggestions: flow(function*() {
+      const response = yield window.fetch(
         `${suggestionsUrlPrefix}_${self.gender}`
       );
-      const suggestions = await response.json();
-      self.addSuggestions(suggestions);
-    },
-    addSuggestions: suggestions => self.wishList.items.push(...suggestions)
+      const suggestions = yield response.json();
+      self.wishList.items.push(...suggestions);
+    })
   }));
