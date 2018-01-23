@@ -10,7 +10,7 @@ class WishListItemView extends React.Component {
   };
 
   render() {
-    return (this.state.isEditing)
+    return this.state.isEditing
       ? this.renderEdit(this.state.clone)
       : this.renderDisplay(this.props.item);
   }
@@ -19,13 +19,19 @@ class WishListItemView extends React.Component {
     <li className="item">
       {item.image && <img src={item.image} alt={item.name} />}
       <h3>{item.name}</h3>
-      <span><Dollars amount={item.price} /></span>
+      <span>
+        <Dollars amount={item.price} />
+      </span>
       <span>
         <button onClick={this.onEditRequest}>
-          <span role="img" aria-label="Edit">✏️</span>
+          <span role="img" aria-label="Edit">
+            ✏️
+          </span>
         </button>
         <button onClick={item.remove}>
-          <span role="img" aria-label="Remove">❌</span>
+          <span role="img" aria-label="Remove">
+            ❌
+          </span>
         </button>
       </span>
     </li>
@@ -34,11 +40,15 @@ class WishListItemView extends React.Component {
   renderEdit = item => (
     <li className="item">
       <WishListItemEdit item={item} />
-      <button onClick={this.onEditSave}>
-        <span role="img" aria-label="Save">💾</span>
-      </button>
       <button onClick={this.onEditCancel}>
-        <span role="img" aria-label="Cancel">👈</span>
+        <span role="img" aria-label="Cancel">
+          ↩
+        </span>
+      </button>
+      <button onClick={this.onEditSave}>
+        <span role="img" aria-label="Save">
+          💾
+        </span>
       </button>
     </li>
   );
@@ -47,11 +57,11 @@ class WishListItemView extends React.Component {
     this.setState({
       isEditing: true,
       clone: clone(this.props.item)
-    })
+    });
   };
 
   onEditCancel = () => {
-    this.setState({ isEditing: false })
+    this.setState({ isEditing: false });
   };
 
   onEditSave = () => {
@@ -59,7 +69,7 @@ class WishListItemView extends React.Component {
     this.setState({
       isEditing: false,
       clone: null
-    })
+    });
   };
 }
 

@@ -1,7 +1,11 @@
 import { reaction } from 'mobx';
 import { User } from './User';
 import { WishList } from './WishList';
-import { testUserInput, testUserInputWithWishList, testWishListItemInputs } from './testData';
+import {
+  testUserInput,
+  testUserInputWithWishList,
+  testWishListItemInputs
+} from './testData';
 import { mobxSnapshotHelper } from '../util/testHelpers';
 
 function testUserInputWith(overrides) {
@@ -26,11 +30,16 @@ describe('User', () => {
 
     it('should not accept unknown genders', () => {
       try {
-        mobxSnapshotHelper.test(User.create(testUserInputWith({ gender: 'q' })));
+        mobxSnapshotHelper.test(
+          User.create(testUserInputWith({ gender: 'q' }))
+        );
       } catch (error) {
-        expect(error.toString()).toEqual(expect.stringContaining(
-          '"/gender" value `"q"` is not assignable to type: `gender`'));
+        expect(error.toString()).toEqual(
+          expect.stringContaining(
+            '"/gender" value `"q"` is not assignable to type: `gender`'
+          )
+        );
       }
-    })
+    });
   });
 });

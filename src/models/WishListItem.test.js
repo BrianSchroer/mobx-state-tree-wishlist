@@ -21,20 +21,20 @@ describe('WishListItem', () => {
   });
 
   it('.changeName() should change name', () => {
-    mobxSnapshotHelper.test(
-      WishListItem.create(testWishListItemInput),
-      item => item.changeName('new name'));
+    mobxSnapshotHelper.test(WishListItem.create(testWishListItemInput), item =>
+      item.changeName('new name')
+    );
   });
 
   it('.changePrice() should change price', () => {
-    mobxSnapshotHelper.test(
-      WishListItem.create(testWishListItemInput),
-      item => item.changePrice(12.34));
+    mobxSnapshotHelper.test(WishListItem.create(testWishListItemInput), item =>
+      item.changePrice(12.34)
+    );
   });
 
   it('.changeImage() should change image', () => {
-    mobxSnapshotHelper.test(
-      WishListItem.create(testWishListItemInput),
-      item => item.changeImage('new image'));
+    mobxSnapshotHelper.test(WishListItem.create(testWishListItemInput), item =>
+      item.changeImage('new image')
+    );
   });
 });

@@ -14,24 +14,31 @@ describe('WishList', () => {
   });
 
   it('.create() without input should return empty items array', () => {
-    mobxSnapshotHelper.test(
-      WishList.create(),
-      list => expect(list.items.length).toBe(0));
+    mobxSnapshotHelper.test(WishList.create(), list =>
+      expect(list.items.length).toBe(0)
+    );
   });
 
   it('.add(object) should add item', () => {
-    mobxSnapshotHelper.test(
-      WishList.create(),
-      list => list.add(
-        testItemInputWith({ name: 'newName', price: 23.45, image: 'new image' })));
+    mobxSnapshotHelper.test(WishList.create(), list =>
+      list.add(
+        testItemInputWith({ name: 'newName', price: 23.45, image: 'new image' })
+      )
+    );
   });
 
   it('.add(WishListItem) should add item', () => {
-    mobxSnapshotHelper.test(
-      WishList.create(),
-      list => list.add(
+    mobxSnapshotHelper.test(WishList.create(), list =>
+      list.add(
         WishListItem.create(
-          testItemInputWith({ name: 'newName', price: 23.45, image: 'new image' }))));
+          testItemInputWith({
+            name: 'newName',
+            price: 23.45,
+            image: 'new image'
+          })
+        )
+      )
+    );
   });
 
   it('.remove() should remove item', () => {
@@ -42,7 +49,8 @@ describe('WishList', () => {
         const itemCount = items.length;
         list.remove(items[1]);
         expect(items.length).toEqual(itemCount - 1);
-      });
+      }
+    );
   });
 
   it('.items[n].remove() should remove item', () => {
@@ -53,18 +61,23 @@ describe('WishList', () => {
         const itemCount = items.length;
         items[1].remove();
         expect(items.length).toEqual(itemCount - 1);
-      });
+      }
+    );
   });
 
   it('.totalPrice should return sum of item prices', () => {
-    const inputItems = [1.23, 4.56, 7.89, 10].map(i => (testItemInputWith({ price: i })));
+    const inputItems = [1.23, 4.56, 7.89, 10].map(i =>
+      testItemInputWith({ price: i })
+    );
 
     const list = WishList.create({ items: inputItems });
     expect(list.totalPrice).toBe(23.68);
-  })
+  });
 
   it('.totalPrice should only be recalculated when price is changed or item is added/removed', () => {
-    const list = WishList.create({ items: [testItemInputWith({ price: 28.83 })] });
+    const list = WishList.create({
+      items: [testItemInputWith({ price: 28.83 })]
+    });
     expect(list.totalPrice).toEqual(testWishListItemInput.price);
 
     let recalculateCount = 0;
@@ -78,7 +91,7 @@ describe('WishList', () => {
     expect(list.totalPrice).toEqual(12.34);
     expect(recalculateCount).toBe(1);
 
-    list.add({ name: 'item2', price: 2.22, image: 'image2' })
+    list.add({ name: 'item2', price: 2.22, image: 'image2' });
     expect(list.totalPrice).toEqual(14.56);
     expect(recalculateCount).toBe(2);
 

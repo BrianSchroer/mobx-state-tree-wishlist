@@ -1,9 +1,4 @@
-import React from 'react';
-import App from './App';
-import { Group } from '../models';
-import { SnapshotHelper } from 'react-jest-snapshot-helper';
-
-export const testGroupInput = {
+export const defaultState = {
   users: {
     a342: {
       id: 'a342',
@@ -32,9 +27,3 @@ export const testGroupInput = {
     }
   }
 };
-
-describe('App', () => {
-  it('should render correctly', () => {
-    SnapshotHelper.test(<App group={Group.create(testGroupInput)} />);
-  });
-});

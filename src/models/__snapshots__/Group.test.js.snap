@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Group .create() should return expected items 1`] = `
+Object {
+  "users": Object {
+    "5fc2": Object {
+      "gender": "f",
+      "id": "5fc2",
+      "name": "Marge",
+      "wishList": Object {
+        "items": Array [],
+      },
+    },
+    "65aa": Object {
+      "gender": "f",
+      "id": "65aa",
+      "name": "Maggie",
+      "wishList": Object {
+        "items": Array [],
+      },
+    },
+    "663b": Object {
+      "gender": "m",
+      "id": "663b",
+      "name": "Bart",
+      "wishList": Object {
+        "items": Array [],
+      },
+    },
+    "a342": Object {
+      "gender": "m",
+      "id": "a342",
+      "name": "Homer",
+      "wishList": Object {
+        "items": Array [],
+      },
+    },
+    "ba32": Object {
+      "gender": "f",
+      "id": "ba32",
+      "name": "Lisa",
+      "wishList": Object {
+        "items": Array [],
+      },
+    },
+  },
+}
+`;
