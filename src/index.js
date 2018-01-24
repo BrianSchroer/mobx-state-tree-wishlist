@@ -1,32 +1,33 @@
+import './assets/index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { getSnapshot, onSnapshot } from 'mobx-state-tree';
-import './assets/index.css';
+import { getSnapshot /*, onSnapshot*/ } from 'mobx-state-tree';
 import { Group } from './models';
 import App from './components/App';
-import { defaultState } from './defaultState';
+// import { defaultState } from './defaultState';
 
-function getInitialGroup() {
-  let state = defaultState;
+// function getStateFromLocalStorage() {
+//   let state = null;
+//   const json = localStorage.getItem('wishlistapp');
 
-  const json = localStorage.getItem('wishlistapp');
+//   if (json) {
+//     const parsed = JSON.parse(json);
+//     state = verifyStateShape(parsed);
+//   }
 
-  if (json) {
-    const persistedState = JSON.parse(json);
-    if (Group.is(persistedState)) {
-      // (persisted state matches expected shape)
-      state = persistedState;
-    }
-  }
+//   return state;
+// }
 
-  return Group.create(state);
-}
+// function verifyStateShape(state) {
+//   const verified = Group.is(state) ? state : null;
+//   return verified;
+// }
 
-function setUpLocalStoragePersistence() {
-  onSnapshot(group, snapshot =>
-    localStorage.setItem('wishlistapp', JSON.stringify(snapshot))
-  );
-}
+// function setUpLocalStoragePersistence() {
+//   onSnapshot(group, snapshot =>
+//     localStorage.setItem('wishlistapp', JSON.stringify(snapshot))
+//   );
+// }
 
 function setUpHotModuleReloading() {
   if (!module.hot) {
@@ -55,13 +56,25 @@ function setUpHotModuleReloading() {
   );
 }
 
+/**
+ * Expose variables to F12 debugger tools by making them "window" variables
+ * @param {*} variables to be exposed
+ */
+function exposeToDebuggerTools(variables) {
+  Object.keys(variables).forEach(key => (window[key] = variables[key]));
+}
+
 function renderApp() {
+  exposeToDebuggerTools({ group });
   ReactDOM.render(<App group={group} />, document.getElementById('root'));
 }
 
-let group = getInitialGroup();
+// const getStateFromDatabase() || getStateFromLocalStorage() || defaultState;
+const initialState = { users: {} };
 
-setUpLocalStoragePersistence();
+let group = Group.create(initialState);
+
+// setUpLocalStoragePersistence();
 
 renderApp();
 

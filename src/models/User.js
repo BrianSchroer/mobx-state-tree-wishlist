@@ -13,7 +13,7 @@ export const User = types
   })
 
   .actions(self => ({
-    getSuggestions: flow(function*() {
+    getSuggestions: flow(function* getSuggestions() {
       // Note the * in the function declaration above. This is a generator.
       const response = yield window.fetch(
         `${suggestionsUrlPrefix}_${self.gender}`

@@ -1,11 +1,20 @@
-import { types } from 'mobx-state-tree';
+import { types, flow, applySnapshot } from 'mobx-state-tree';
 import { User } from './User';
+
+const getUsersUrl = 'http://localhost:3001/users';
 
 export const Group = types
   .model({
     users: types.map(User)
   })
   .actions(self => ({
+    afterCreate: () => self.load(),
+
+    load: flow(function* load() {
+      const response = yield window.fetch(getUsersUrl);
+      applySnapshot(self.users, yield response.json());
+    }),
+
     drawLots: () => {
       const allUsers = self.users.values();
 
