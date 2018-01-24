@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { observer } from 'mobx-react';
 import { clone, getSnapshot, applySnapshot } from 'mobx-state-tree';
 import WishListItemEdit from './WishListItemEdit';
@@ -21,11 +21,9 @@ class WishListItemView extends React.Component {
     <li className="item">
       {item.image && <img src={item.image} alt={item.name} />}
       <h3>{item.name}</h3>
-      <span>
-        <Dollars amount={item.price} />
-      </span>
+      <Dollars amount={item.price} />
       {!readonly && (
-        <span>
+        <Fragment>
           <button onClick={this.onEditRequest}>
             <span role="img" aria-label="Edit">
               ✏️
@@ -36,7 +34,7 @@ class WishListItemView extends React.Component {
               ❌
             </span>
           </button>
-        </span>
+        </Fragment>
       )}
     </li>
   );

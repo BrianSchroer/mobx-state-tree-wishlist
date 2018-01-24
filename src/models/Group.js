@@ -15,6 +15,8 @@ export const Group = types
       // not assigned lots
       let remaining = allUsers.slice();
 
+      allUsers.forEach(user => (user.recipient = null));
+
       allUsers.forEach(user => {
         // edge case: the only person without recipient
         // is the same as the only remaining lot
@@ -23,7 +25,7 @@ export const Group = types
           const swapWith =
             allUsers[Math.floor(Math.random() * (allUsers.length - 1))];
           user.recipient = swapWith.recipient;
-          swapWith.recipient = self;
+          swapWith.recipient = self.recipient;
         } else
           while (!user.recipient) {
             // Pick random lot from remaing list

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Fragment } from 'react';
 import { observer } from 'mobx-react';
 import logo from '../assets/santa-claus.png';
 import WishListView from './WishListView';
@@ -11,17 +11,18 @@ const User = observer(({ user }) => {
     <div>
       <WishListView wishList={user.wishList} />
       <button onClick={user.getSuggestions}>Suggestions</button>
-      <hr />
-      <h2>{recipient ? recipient.name : ''}</h2>
-      {recipient &&
-        recipient.wishList && (
+      {recipient && (
+        <Fragment>
+          <hr />
+          <h2>{`${user.name} is "Secret Santa" for ${recipient.name}:`}</h2>
           <WishListView wishList={recipient.wishList} readonly />
-        )}
+        </Fragment>
+      )}
     </div>
   );
 });
 
-class App extends Component {
+class App extends React.Component {
   state = {
     selectedUserId: null
   };

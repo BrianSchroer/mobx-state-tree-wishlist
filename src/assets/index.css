@@ -6,11 +6,15 @@ body {
   padding: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-family: 'Mogra', cursive;
 }
 
-body, select, input, button {
+body,
+select,
+input,
+button {
   font-family: 'BioRhyme', cursive;
   background-color: #f3f3f3;
 }
@@ -36,12 +40,9 @@ body, select, input, button {
   padding-left: 20px;
   color: darkred;
   text-shadow: 2px 3px 1px white;
-  text-decoration: underline;
   line-height: 150px;
   margin: 0;
 }
-
-
 
 .list {
   max-width: 500px;
