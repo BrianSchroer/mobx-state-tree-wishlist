@@ -10,7 +10,9 @@ const User = observer(({ user }) => {
   return (
     <div>
       <WishListView wishList={user.wishList} />
-      <button onClick={user.getSuggestions}>Suggestions</button>
+      <div style={{ marginTop: 5 }}>
+        <button onClick={user.getSuggestions}>Suggestions</button>
+      </div>
       {recipient && (
         <Fragment>
           <hr />
