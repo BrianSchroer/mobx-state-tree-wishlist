@@ -5,14 +5,16 @@ const suggestionsUrlPrefix = 'http://localhost:3001/suggestions';
 
 export const User = types
   .model({
-    id: types.string,
+    id: types.identifier(),
     name: types.string,
     gender: types.enumeration('gender', ['m', 'f', 'x']),
-    wishList: types.optional(WishList, {})
+    wishList: types.optional(WishList, {}),
+    recipient: types.maybe(types.reference(types.late(() => User)))
   })
 
   .actions(self => ({
     getSuggestions: flow(function*() {
+      // Note the * in the function declaration above. This is a generator.
       const response = yield window.fetch(
         `${suggestionsUrlPrefix}_${self.gender}`
       );

@@ -50,5 +50,10 @@ exports[`App should render correctly 1`] = `
       Lisa
     </option>
   </select>
+  <button
+    onClick={[Function]}
+  >
+    Draw lots
+  </button>
 </div>
 `;

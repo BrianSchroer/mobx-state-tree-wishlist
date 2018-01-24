@@ -7,6 +7,7 @@ Object {
       "gender": "f",
       "id": "5fc2",
       "name": "Marge",
+      "recipient": null,
       "wishList": Object {
         "items": Array [],
       },
@@ -15,6 +16,7 @@ Object {
       "gender": "f",
       "id": "65aa",
       "name": "Maggie",
+      "recipient": null,
       "wishList": Object {
         "items": Array [],
       },
@@ -23,6 +25,7 @@ Object {
       "gender": "m",
       "id": "663b",
       "name": "Bart",
+      "recipient": null,
       "wishList": Object {
         "items": Array [],
       },
@@ -31,6 +34,7 @@ Object {
       "gender": "m",
       "id": "a342",
       "name": "Homer",
+      "recipient": null,
       "wishList": Object {
         "items": Array [],
       },
@@ -39,6 +43,7 @@ Object {
       "gender": "f",
       "id": "ba32",
       "name": "Lisa",
+      "recipient": null,
       "wishList": Object {
         "items": Array [],
       },

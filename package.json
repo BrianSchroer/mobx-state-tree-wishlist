@@ -16,7 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "json-server": "json-server --port 3001 db.json"
+    "startdb": "json-server --port 3001 db.json"
   },
   "devDependencies": {
     "react-jest-snapshot-helper": "^1.0.3"

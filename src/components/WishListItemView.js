@@ -10,30 +10,34 @@ class WishListItemView extends React.Component {
   };
 
   render() {
+    const { item, readonly } = this.props;
+
     return this.state.isEditing
       ? this.renderEdit(this.state.clone)
-      : this.renderDisplay(this.props.item);
+      : this.renderDisplay({ item, readonly });
   }
 
-  renderDisplay = item => (
+  renderDisplay = ({ item, readonly }) => (
     <li className="item">
       {item.image && <img src={item.image} alt={item.name} />}
       <h3>{item.name}</h3>
       <span>
         <Dollars amount={item.price} />
       </span>
-      <span>
-        <button onClick={this.onEditRequest}>
-          <span role="img" aria-label="Edit">
-            ✏️
-          </span>
-        </button>
-        <button onClick={item.remove}>
-          <span role="img" aria-label="Remove">
-            ❌
-          </span>
-        </button>
-      </span>
+      {!readonly && (
+        <span>
+          <button onClick={this.onEditRequest}>
+            <span role="img" aria-label="Edit">
+              ✏️
+            </span>
+          </button>
+          <button onClick={item.remove}>
+            <span role="img" aria-label="Remove">
+              ❌
+            </span>
+          </button>
+        </span>
+      )}
     </li>
   );
 
