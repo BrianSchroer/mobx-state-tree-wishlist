@@ -18,12 +18,15 @@ export const Group = types
 
       load: flow(function* load() {
         abortController = newAbortController();
-        flow(load(self, abortController));
         try {
           const response = yield window.fetch(getUsersUrl, {
             signal: abortController && abortController.signal
           });
-          applySnapshot(self.users, yield response.json());
+          const users = yield response.json();
+          applySnapshot(
+            self.users,
+            users.reduce((base, user) => ({ ...base, [user.id]: user }), {})
+          );
           console.log(`successful load from ${getUsersUrl}`);
         } catch (e) {
           console.log(`aborted load from ${getUsersUrl}`, e.name);

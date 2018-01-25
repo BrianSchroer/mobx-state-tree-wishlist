@@ -3,140 +3,82 @@
     {
       "name": "The Notebook",
       "price": 10.31,
-      "image":
-        "https://images-na.ssl-images-amazon.com/images/I/51ZXkAJNYWL._AC_US218_.jpg"
+      "image": "https://images-na.ssl-images-amazon.com/images/I/51ZXkAJNYWL._AC_US218_.jpg"
     },
     {
       "name": "LEGO Mindstorms EV3",
       "price": 349.95,
-      "image":
-        "https://images-na.ssl-images-amazon.com/images/I/71CpQw%2BufNL._SL1000_.jpg"
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71CpQw%2BufNL._SL1000_.jpg"
     }
   ],
   "suggestions_m": [
     {
       "name": "Machine Gun Preacher",
       "price": 7.35,
-      "image":
-        "https://images-na.ssl-images-amazon.com/images/I/91AFFK9fwkL._SY445_.jpg"
+      "image": "https://images-na.ssl-images-amazon.com/images/I/91AFFK9fwkL._SY445_.jpg"
     },
     {
       "name": "LEGO Mindstorms EV3",
       "price": 349.95,
-      "image":
-        "https://images-na.ssl-images-amazon.com/images/I/71CpQw%2BufNL._SL1000_.jpg"
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71CpQw%2BufNL._SL1000_.jpg"
     }
   ],
-  "users": {
-    "a342": {
+  "users": [
+    {
       "id": "a342",
       "name": "Homer",
       "gender": "m",
       "wishList": {
         "items": [
           {
-            "name": "Echo Dot",
-            "price": 50,
-            "image":
-              "https://images-na.ssl-images-amazon.com/images/I/61ikAJnULvL._SL1000_.jpg"
-          },
-          {
             "name": "Machine Gun Preacher",
             "price": 7.35,
-            "image":
-              "https://images-na.ssl-images-amazon.com/images/I/91AFFK9fwkL._SY445_.jpg"
+            "image": "https://images-na.ssl-images-amazon.com/images/I/91AFFK9fwkL._SY445_.jpg"
           },
           {
             "name": "LEGO Mindstorms EV3",
             "price": 349.95,
-            "image":
-              "https://images-na.ssl-images-amazon.com/images/I/71CpQw%2BufNL._SL1000_.jpg"
-          }
-        ]
-      },
-      "recipient": "65aa"
-    },
-    "5fc2": {
-      "id": "5fc2",
-      "name": "Marge",
-      "gender": "f",
-      "wishList": {
-        "items": [
-          {
-            "name": "Fitbit Alta Fitness Tracker",
-            "price": 114,
-            "image":
-              "https://images-na.ssl-images-amazon.com/images/I/61xi3yXNPmL._SY355_.jpg"
-          }
-        ]
-      },
-      "recipient": "663b"
-    },
-    "663b": {
-      "id": "663b",
-      "name": "Bart",
-      "gender": "m",
-      "wishList": {
-        "items": [
-          {
-            "name": "Machine Gun Preacher",
-            "price": 7.35,
-            "image":
-              "https://images-na.ssl-images-amazon.com/images/I/91AFFK9fwkL._SY445_.jpg"
-          },
-          {
-            "name": "LEGO Mindstorms EV3",
-            "price": 349.95,
-            "image":
-              "https://images-na.ssl-images-amazon.com/images/I/71CpQw%2BufNL._SL1000_.jpg"
+            "image": "https://images-na.ssl-images-amazon.com/images/I/71CpQw%2BufNL._SL1000_.jpg"
           }
         ]
       },
       "recipient": "ba32"
     },
-    "65aa": {
+    {
+      "id": "5fc2",
+      "name": "Marge",
+      "gender": "f",
+      "wishList": {
+        "items": []
+      },
+      "recipient": "65aa"
+    },
+    {
+      "id": "663b",
+      "name": "Bart",
+      "gender": "m",
+      "wishList": {
+        "items": []
+      },
+      "recipient": "a342"
+    },
+    {
       "id": "65aa",
       "name": "Maggie",
       "gender": "f",
       "wishList": {
-        "items": [
-          {
-            "name": "The Notebook",
-            "price": 10.31,
-            "image":
-              "https://images-na.ssl-images-amazon.com/images/I/51ZXkAJNYWL._AC_US218_.jpg"
-          },
-          {
-            "name": "LEGO Mindstorms EV3",
-            "price": 349.95,
-            "image":
-              "https://images-na.ssl-images-amazon.com/images/I/71CpQw%2BufNL._SL1000_.jpg"
-          }
-        ]
+        "items": []
       },
       "recipient": "5fc2"
     },
-    "ba32": {
+    {
       "id": "ba32",
       "name": "Lisa",
       "gender": "f",
       "wishList": {
-        "items": [
-          {
-            "name": "The Notebook",
-            "price": 10.31,
-            "image":
-              "https://images-na.ssl-images-amazon.com/images/I/51ZXkAJNYWL._AC_US218_.jpg"
-          },
-          {
-            "name": "LEGO Mindstorms EV3",
-            "price": 349.95,
-            "image":
-              "https://images-na.ssl-images-amazon.com/images/I/71CpQw%2BufNL._SL1000_.jpg"
-          }
-        ]
+        "items": []
       },
-      "recipient": "a342"
+      "recipient": "663b"
     }
-  }
+  ]
 }
