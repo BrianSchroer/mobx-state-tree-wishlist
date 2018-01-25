@@ -15,31 +15,27 @@ exports[`WishListView should render correctly 1`] = `
       <h3>
         name1
       </h3>
-      <span>
-        $1.00
-      </span>
-      <span>
-        <button
-          onClick={[Function]}
+      $1.00
+      <button
+        onClick={[Function]}
+      >
+        <span
+          aria-label="Edit"
+          role="img"
         >
-          <span
-            aria-label="Edit"
-            role="img"
-          >
-            ✏️
-          </span>
-        </button>
-        <button
-          onClick={[Function]}
+          ✏️
+        </span>
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        <span
+          aria-label="Remove"
+          role="img"
         >
-          <span
-            aria-label="Remove"
-            role="img"
-          >
-            ❌
-          </span>
-        </button>
-      </span>
+          ❌
+        </span>
+      </button>
     </li>
     <li
       className="item"
@@ -51,31 +47,27 @@ exports[`WishListView should render correctly 1`] = `
       <h3>
         name2
       </h3>
-      <span>
-        $2.00
-      </span>
-      <span>
-        <button
-          onClick={[Function]}
+      $2.00
+      <button
+        onClick={[Function]}
+      >
+        <span
+          aria-label="Edit"
+          role="img"
         >
-          <span
-            aria-label="Edit"
-            role="img"
-          >
-            ✏️
-          </span>
-        </button>
-        <button
-          onClick={[Function]}
+          ✏️
+        </span>
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        <span
+          aria-label="Remove"
+          role="img"
         >
-          <span
-            aria-label="Remove"
-            role="img"
-          >
-            ❌
-          </span>
-        </button>
-      </span>
+          ❌
+        </span>
+      </button>
     </li>
     <li
       className="item"
@@ -87,31 +79,27 @@ exports[`WishListView should render correctly 1`] = `
       <h3>
         name3
       </h3>
-      <span>
-        $3.00
-      </span>
-      <span>
-        <button
-          onClick={[Function]}
+      $3.00
+      <button
+        onClick={[Function]}
+      >
+        <span
+          aria-label="Edit"
+          role="img"
         >
-          <span
-            aria-label="Edit"
-            role="img"
-          >
-            ✏️
-          </span>
-        </button>
-        <button
-          onClick={[Function]}
+          ✏️
+        </span>
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        <span
+          aria-label="Remove"
+          role="img"
         >
-          <span
-            aria-label="Remove"
-            role="img"
-          >
-            ❌
-          </span>
-        </button>
-      </span>
+          ❌
+        </span>
+      </button>
     </li>
   </ul>
   <div>

@@ -7,47 +7,78 @@ export const Group = types
   .model({
     users: types.map(User)
   })
-  .actions(self => ({
-    afterCreate: () => self.load(),
 
-    load: flow(function* load() {
-      const response = yield window.fetch(getUsersUrl);
-      applySnapshot(self.users, yield response.json());
-    }),
+  .actions(self => {
+    let abortController;
 
-    drawLots: () => {
-      const allUsers = self.users.values();
+    return {
+      afterCreate: () => self.load(),
 
-      // not enough users, bail out
-      if (allUsers.length <= 1) return;
+      beforeDestroy: () => abortFetch(),
 
-      // not assigned lots
-      let remaining = allUsers.slice();
+      load: flow(function* load() {
+        abortController = newAbortController();
+        flow(load(self, abortController));
+        try {
+          const response = yield window.fetch(getUsersUrl, {
+            signal: abortController && abortController.signal
+          });
+          applySnapshot(self.users, yield response.json());
+          console.log(`successful load from ${getUsersUrl}`);
+        } catch (e) {
+          console.log(`aborted load from ${getUsersUrl}`, e.name);
+        }
+      }),
 
-      allUsers.forEach(user => (user.recipient = null));
+      reload: () => {
+        abortFetch();
+        self.load();
+      },
 
-      allUsers.forEach(user => {
-        // edge case: the only person without recipient
-        // is the same as the only remaining lot
-        // swap lots with some random other person
-        if (remaining.length === 1 && remaining[0] === user) {
-          const swapWith =
-            allUsers[Math.floor(Math.random() * (allUsers.length - 1))];
-          user.recipient = swapWith.recipient;
-          swapWith.recipient = self.recipient;
-        } else
-          while (!user.recipient) {
-            // Pick random lot from remaing list
-            let recipientIndex = Math.floor(Math.random() * remaining.length);
-            let recipient = remaining[recipientIndex];
+      drawLots: () => {
+        const allUsers = self.users.values();
 
-            // If it is not the current user, assign it as recipient
-            // and remove the lot
-            if (recipient !== user) {
-              user.recipient = recipient;
-              remaining.splice(recipientIndex, 1);
+        // not enough users, bail out
+        if (allUsers.length <= 1) return;
+
+        // not assigned lots
+        let remaining = allUsers.slice();
+
+        allUsers.forEach(user => (user.recipient = null));
+
+        allUsers.forEach(user => {
+          // edge case: the only person without recipient
+          // is the same as the only remaining lot
+          // swap lots with some random other person
+          if (remaining.length === 1 && remaining[0] === user) {
+            const swapWith =
+              allUsers[Math.floor(Math.random() * (allUsers.length - 1))];
+            user.recipient = swapWith.recipient;
+            swapWith.recipient = self.recipient;
+          } else
+            while (!user.recipient) {
+              // Pick random lot from remaing list
+              let recipientIndex = Math.floor(Math.random() * remaining.length);
+              let recipient = remaining[recipientIndex];
+
+              // If it is not the current user, assign it as recipient
+              // and remove the lot
+              if (recipient !== user) {
+                user.recipient = recipient;
+                remaining.splice(recipientIndex, 1);
+              }
             }
-          }
-      });
-    }
-  }));
+        });
+      }
+    };
+  });
+
+function newAbortController() {
+  return window.AbortController && new window.AbortController();
+}
+
+function abortFetch(abortController) {
+  if (abortController) {
+    abortController.abort();
+  }
+}

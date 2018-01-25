@@ -40,6 +40,8 @@ class App extends React.Component {
           <h1 className="App-title">Wish List</h1>
         </header>
 
+        <button onClick={group.reload}>Reload</button>
+
         <select onChange={this.onSelectUser}>
           <option>- Select user -</option>
           {group.users.values().map(user => (

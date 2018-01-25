@@ -18,6 +18,11 @@ exports[`App should render correctly 1`] = `
       Wish List
     </h1>
   </header>
+  <button
+    onClick={[Function]}
+  >
+    Reload
+  </button>
   <select
     onChange={[Function]}
   >
